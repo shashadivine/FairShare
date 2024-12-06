@@ -19,4 +19,8 @@ public class Receipt{
         Receipt a = new Receipt();
         //will add stuff later
     }
+
+    //add item
+    //assign person
+    //calculate cost
 }

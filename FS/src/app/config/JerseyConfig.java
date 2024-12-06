@@ -13,6 +13,5 @@ public class JerseyConfig extends ResourceConfig {
 		packages("app.rest");  
 				    
 
-
     }
 }
