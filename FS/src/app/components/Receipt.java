@@ -24,5 +24,5 @@ public class Receipt{
     //assign person
     //calculate cost
 
-    //test
+    //test 
 }
