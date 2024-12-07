@@ -17,15 +17,14 @@ public class Receipt
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column
+	@NotNull
 	private Long pk;
 	
 	@Column
-	@NotNull
 	@OneToMany(mappedBy = "receipt", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Item> items = new HashSet<>();
 	
 	@Column
-	@NotNull
 	@OneToMany(mappedBy = "receipt", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<User> users = new HashSet<>();
 
