@@ -122,6 +122,14 @@ public class ReceiptComponent{
 		//a = rRep.findByPk(receiptPk)
 		//b = a.getUsers() 
 		//for each user in b, calculate how much each owes then print their cost
+		//for (User i : b) {
+		//c=i.getItemsOwed()
+		//double cost=0.0
+		//for (Item j : c){
+		//d=j.getPrice()
+		//cost=cost+d}
+		//System.out.println("Name: "+ i.name + "; Amount owed:" + cost)
+		//}
     	return "hi";
     	// should return Sent Receipt Confirmation or Failure AND receipt summary
    	}
