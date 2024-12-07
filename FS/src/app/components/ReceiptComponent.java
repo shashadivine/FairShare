@@ -120,7 +120,8 @@ public class ReceiptComponent{
    	{
 		//commenting so nothing breaks due to VScode dependencies.
 		//a = rRep.findByPk(receiptPk)
-		//smth to add price
+		//b = a.getUsers() 
+		//for each user in b, calculate how much each owes then print their cost
     	return "hi";
     	// should return Sent Receipt Confirmation or Failure AND receipt summary
    	}
