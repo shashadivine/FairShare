@@ -118,27 +118,6 @@ public class ReceiptComponent{
     
     public String calculateAndSend(String receiptPk)
    	{
-		//commenting so nothing breaks due to VScode dependencies.
-    	// find receipt object with their receiptPk
-    	List<Receipt> selectedReceipt = rRep.findByPk(receiptPk);
-    	Receipt receipt = selectedReceipt.get(0);
-    	
-    	//a = rRep.findByPk(receiptPk)
-    	//b = a.getUsers() 
-    	//for each user in b, calculate how much each owes then print their cost
-    	
-    	 return userCosts;
-		//a = rRep.findByPk(receiptPk)
-		//b = a.getUsers() 
-		//for each user in b, calculate how much each owes then print their cost
-		//for (User i : b) {
-		//c=i.getItemsOwed()
-		//double cost=0.0
-		//for (Item j : c){
-		//d=j.getPrice()
-		//cost=cost+d}
-		//System.out.println("Name: "+ i.name + "; Amount owed:" + cost)
-		//}
     	return "hi";
     	// should return Sent Receipt Confirmation or Failure AND receipt summary
    	}
