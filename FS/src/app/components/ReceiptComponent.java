@@ -118,6 +118,9 @@ public class ReceiptComponent{
     
     public String calculateAndSend(String receiptPk)
    	{
+		//commenting so nothing breaks due to VScode dependencies.
+		//a = rRep.findByPk(receiptPk)
+		//smth to add price
     	return "hi";
     	// should return Sent Receipt Confirmation or Failure AND receipt summary
    	}
