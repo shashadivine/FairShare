@@ -116,7 +116,6 @@ public class ReceiptComponent{
     	}
 	}
     
-<<<<<<< HEAD
 	public String calculateAndSend(String receiptPk)
 	{
 	 // find receipt object with their receiptPk
@@ -156,40 +155,4 @@ public class ReceiptComponent{
 	 return receiptSummary;
 	 // should return Sent Receipt Confirmation or Failure AND receipt summary
 	}
-=======
-    public String calculateAndSend(String receiptPk, String itemName, String userName)
-   	{
-		//commenting so nothing breaks due to VScode dependencies.
-    	
-    	// find receipt object with their receiptPk
-    	List<Receipt> selectedReceipt = rRep.findByPk(receiptPk);
-    	Receipt receipt = selectedReceipt.get(0);
-    	
-    	User user = UserRepository.findByUserName(userName); //nalilito ako here wait
-    	Set<Item> assignedItems = user.getItemsOwed();
-    	
-    	double userCost = 0.0;
-    	for (Item item : assignedItems) {
-    	  userCost += item.getPrice();
-    	}
-    	
-    	user.setCostOwed(userCost); //wrong
-    	UserRepository.save(user); //wrong
-
-    	// add all costs
-    	
-    	//b = a.getUsers() 
-    	//for each user in b, calculate how much each owes then print their cost
-    	
-    	return userCosts;
-    	return "hi";
-    	// should return Sent Receipt Confirmation or Failure AND receipt summary
->>>>>>> 3550bebc275aac2ab58af5be2188be56afffaac4
-   	}
-
-    //add item
-    //assign person
-    //calculate cost
-
-    //test 
 }
