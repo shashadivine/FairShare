@@ -114,7 +114,7 @@ public class ReceiptComponent{
     	}
     	
     	else {
-    		return "may mali ata baks";
+    		return "Items not successfully added";
     	}
 	}
     
