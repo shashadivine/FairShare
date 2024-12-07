@@ -23,11 +23,9 @@ public class User
 	private Long pk;
 	
 	@Column
-	@NotNull
 	private String userName;
 	
 	@Column
-	@NotNull
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Item> itemsOwed = new HashSet<>();
 	
@@ -57,6 +55,12 @@ public class User
 
 	public void setItemsOwed(Set<Item> itemsOwed) {
 		this.itemsOwed = itemsOwed;
+	}
+	
+	// should be a function that adds only one item to the set
+	// this is different compared to "setItems" which just overwrites the existing set and adds a new set of items
+	public void addItem(Item item) {
+		itemsOwed.add(item);
 	}
 
 	public Double getCostOwed() {
