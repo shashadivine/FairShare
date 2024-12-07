@@ -14,6 +14,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+
+
+import okhttp3.ResponseBody;
+import retrofit2.Response;
 import app.components.ReceiptComponent;
 @Component
 @Path("/fsController")

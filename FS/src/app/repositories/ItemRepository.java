@@ -10,5 +10,5 @@ import app.entities.Item;
 public interface ItemRepository 
 				extends JpaRepository<Item, Long>
 {
-	List<Item> findByItemName(String itemName);
+	List<Item> findByName(String itemName);
 }
