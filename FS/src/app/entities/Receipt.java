@@ -43,6 +43,12 @@ public class Receipt
 	public void setItems(Set<Item> items) {
 		this.items = items;
 	}
+	
+	// should be a function that adds only one item to the set
+	// this is different compared to "setItems" which just overwrites the existing set and adds a new set of items
+	public void addItem(Set<Item> item) {
+		this.items = item; // will edit later
+	}
 
 	public Set<User> getUsers() {
 		return users;
@@ -51,6 +57,12 @@ public class Receipt
 	public void setUsers(Set<User> users) {
 		this.users = users;
 	}
+	
+	// should be a function that adds only one user to the set
+	// this is different compared to "setUsers" which just overwrites the existing set and adds a new set of users
+		public void addUser(Set<User> user) {
+			this.users = user; // will edit later
+		}
 
 	@Override
 	public String toString() {

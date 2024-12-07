@@ -21,25 +21,25 @@ public class ReceiptComponent{
     public String createReceipt()
     {
         Receipt a = new Receipt();
-        a.setItems();
-        a.setUsers();
+        a.setItems(null);
+        a.setUsers(null);
         rRep.save(a);
         Long pk = a.getPk();
-		return pk;
+		return pk.toString();
         //return "hi";
     	// should return receiptPk
     }
-    
-    public String assignPerson(String receiptPk, String itemName, String userName, String quantity)
-	{
-    	return "hi";
-		// should return assignedPerson Confirmation or Failure AND items left to assign 
-	}
     
     public String addItem(String receiptPk, String itemName, String quantity)
 	{
     	return "hi";
     	// should return addedItem Confirmation or Failure
+	}
+    
+    public String assignPerson(String receiptPk, String itemName, String userName, String quantity)
+	{
+    	return "hi";
+		// should return assignedPerson Confirmation or Failure AND items left to assign 
 	}
     
     public String calculateAndSend(String receiptPk)
