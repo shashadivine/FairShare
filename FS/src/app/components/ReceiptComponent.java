@@ -20,7 +20,13 @@ public class ReceiptComponent{
     //Functions
     public String createReceipt()
     {
-        return "hi";
+        Receipt a = new Receipt();
+        a.setItems();
+        a.setUsers();
+        rRep.save(a);
+        Long pk = a.getPk();
+		return pk;
+        //return "hi";
     	// should return receiptPk
     }
     
