@@ -5,7 +5,6 @@ import java.util.Set;
 
 import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import app.entities.User;
 import app.entities.Receipt;
@@ -38,7 +37,6 @@ public class ReceiptComponent{
         rRep.save(a);
         Long pk = a.getPk();
 		return pk.toString();
-        //return "hi";
     	// should return receiptPk
     }
     
@@ -88,7 +86,7 @@ public class ReceiptComponent{
     	
     	
     	// get set of items from receipt
-    	Set itemsFromReceipt = receipt.getItems();
+    	Set<Item> itemsFromReceipt = receipt.getItems();
     	
     	
     	User u = null;
