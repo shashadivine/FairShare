@@ -63,13 +63,13 @@ public class FsController
 	
 	// CALCULATE AND SEND RECEIPTS
 	@GET
-	@Path("/assignPersonToItem")
+	@Path("/sendReceipts")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(javax.ws.rs.core.MediaType.APPLICATION_JSON)
-	public String assignPersonToItem(@QueryParam("itemName") String itemName, @QueryParam("user") String user, @QueryParam("quantity") String quantity) throws Exception
+	public String sendReceipts() throws Exception
 	{
-		return aP.assignPerson(itemName, user);
-		// returns assignedPerson Confirmation or Failure AND items left to assign
+		return cC.calculateAndSend();
+		// returns Sent Receipt Confirmation or Failure AND receipt summary
 	}
 	
 }
