@@ -116,31 +116,45 @@ public class ReceiptComponent{
     	}
 	}
     
-    public String calculateAndSend(String receiptPk)
-   	{
-		//commenting so nothing breaks due to VScode dependencies.
-    	// find receipt object with their receiptPk
-    	List<Receipt> selectedReceipt = rRep.findByPk(receiptPk);
-    	Receipt receipt = selectedReceipt.get(0);
-    	
-    	//a = rRep.findByPk(receiptPk)
-    	//b = a.getUsers() 
-    	//for each user in b, calculate how much each owes then print their cost
-    	
-    	 return userCosts;
-		//a = rRep.findByPk(receiptPk)
-		//b = a.getUsers() 
-		//for each user in b, calculate how much each owes then print their cost
-		//for (User i : b) {
-		//c=i.getItemsOwed()
-		//double cost=0.0
-		//for (Item j : c){
-		//d=j.getPrice()
-		//cost=cost+d}
-		//System.out.println("Name: "+ i.name + "; Amount owed:" + cost)
-		//}
-    	return "hi";
-    	// should return Sent Receipt Confirmation or Failure AND receipt summary
+	public String calculateAndSend(String receiptPk)
+	{
+	 // find receipt object with their receiptPk
+	 List<Receipt> selectedReceipt = rRep.findByPk(receiptPk);
+	 Receipt receipt = selectedReceipt.get(0);
+	 
+	 // get users in receipt
+	 Set<User> usersInReceipt = receipt.getUsers();
+	 
+	 // calculate each user's costOwed
+	 for (User user : usersInReceipt) {
+		 Set<Item> itemsOwedByUser = user.getItemsOwed();
+		 
+		 Double usersCostOwed = user.getCostOwed();
+		 
+		 for(Item item : itemsOwedByUser) {
+			 Double priceOfItem = item.getPrice();
+			 usersCostOwed = usersCostOwed + priceOfItem;
+		 }
+		 user.setCostOwed(usersCostOwed);
+	 }
+	 
+	 String receiptSummary = "RECEIPT SUMMARY";
+	 
+	 // add items
+	 Set<Item> itemsInReceipt = receipt.getItems();
+	 for (Item item : itemsInReceipt) {
+		 receiptSummary = receiptSummary+(item.getItemName());
+	 }
+	 
+	 // add costsowed
+	 for (User user : usersInReceipt) {
+		 Double usersCostOwed = user.getCostOwed();
+		 receiptSummary = receiptSummary+(user.getUserName())+" owes: "+(usersCostOwed.toString());
+	 }
+	 
+	 return receiptSummary;
+	 // should return Sent Receipt Confirmation or Failure AND receipt summary
+	}
    	}
 
     //add item
