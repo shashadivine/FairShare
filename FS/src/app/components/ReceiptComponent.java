@@ -116,38 +116,43 @@ public class ReceiptComponent{
     	}
 	}
     
-    public String calculateAndSend(String receiptPk, String itemName, String userName)
+    public String calculateAndSend(String receiptPk)
    	{
-		//commenting so nothing breaks due to VScode dependencies.
-    	
     	// find receipt object with their receiptPk
     	List<Receipt> selectedReceipt = rRep.findByPk(receiptPk);
     	Receipt receipt = selectedReceipt.get(0);
     	
-    	User user = UserRepository.findByUserName(userName); //nalilito ako here wait
-    	Set<Item> assignedItems = user.getItemsOwed();
+    	// get users in receipt
+    	Set<User> usersInReceipt = receipt.getUsers();
     	
-    	double userCost = 0.0;
-    	for (Item item : assignedItems) {
-    	  userCost += item.getPrice();
+    	// calculate each user's costOwed
+    	for (User user : usersInReceipt) {
+    		Set<Item> itemsOwedByUser = user.getItemsOwed();
+    		
+    		Double usersCostOwed = user.getCostOwed();
+    		
+    		for(Item item : itemsOwedByUser) {
+    			Double priceOfItem = item.getPrice();
+    			usersCostOwed = usersCostOwed + priceOfItem;
+    		}
+    		user.setCostOwed(usersCostOwed);
     	}
     	
-    	user.setCostOwed(userCost); //wrong
-    	UserRepository.save(user); //wrong
-
-    	// add all costs
+    	String receiptSummary = "RECEIPT SUMMARY";
     	
-    	//b = a.getUsers() 
-    	//for each user in b, calculate how much each owes then print their cost
+    	// add items
+    	Set<Item> itemsInReceipt = receipt.getItems();
+    	for (Item item : itemsInReceipt) {
+    		receiptSummary = receiptSummary+(item.getItemName());
+    	}
     	
-    	return userCosts;
-    	return "hi";
+    	// add costsowed
+    	for (User user : usersInReceipt) {
+    		Double usersCostOwed = user.getCostOwed();
+    		receiptSummary = receiptSummary+(user.getUserName())+" owes: "+(usersCostOwed.toString());
+    	}
+    	
+    	return receiptSummary;
     	// should return Sent Receipt Confirmation or Failure AND receipt summary
    	}
-
-    //add item
-    //assign person
-    //calculate cost
-
-    //test 
 }
