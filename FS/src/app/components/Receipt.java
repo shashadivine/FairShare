@@ -23,4 +23,6 @@ public class Receipt{
     //add item
     //assign person
     //calculate cost
+
+    //test
 }
