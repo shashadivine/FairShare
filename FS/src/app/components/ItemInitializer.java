@@ -1,5 +1,6 @@
 package app.components;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -17,7 +18,7 @@ public class ItemInitializer {
 	private ItemRepository iRep;
 	
 	@PostConstruct
-	public void init()
+	public void init() throws IOException
 	{
 		if (iRep.count()==0)
 		{

@@ -43,7 +43,7 @@ public class ReceiptComponent{
     public String addItem(String receiptPk, String itemName, String quantity)
 	{
     	// find the item object with their itemName
-    	List<Item> selectedItem = iRep.findByName(itemName);
+    	List<Item> selectedItem = iRep.findByItemName(itemName);
     	Item item = selectedItem.get(0);
     	
     	// find receipt object with their receiptPk
@@ -77,7 +77,7 @@ public class ReceiptComponent{
     public String assignPerson(String receiptPk, String itemName, String userName, String quantity)
 	{
     	// find the item object with their itemName
-    	List<Item> selectedItem = iRep.findByName(itemName);
+    	List<Item> selectedItem = iRep.findByItemName(itemName);
     	Item item = selectedItem.get(0);
     	
     	// find receipt object with their receiptPk

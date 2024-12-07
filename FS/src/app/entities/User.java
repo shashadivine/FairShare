@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
@@ -17,6 +19,10 @@ import org.hibernate.validator.constraints.Range;
 @Entity
 public class User
 {
+	@ManyToOne
+    @JoinColumn(name = "receipt_id")
+    private Receipt receipt;
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column
